@@ -1,0 +1,134 @@
+{
+  "schemaVersion": 1,
+  "generation": {
+    "actor": "codex",
+    "method": "figma-mcp",
+    "capturedAt": "<ISO-8601-captured-at>"
+  },
+  "source": {
+    "type": "figma",
+    "url": "https://www.figma.com/design/<fileKey>/<fileName>?node-id=<int>-<int>",
+    "fileKey": "<fileKey>",
+    "nodeId": "<int>:<int>",
+    "frame": {
+      "id": "<int>:<int>",
+      "name": "<source-frame-name>",
+      "type": "FRAME",
+      "width": 1080,
+      "height": 1350
+    }
+  },
+  "extraction": {
+    "designContext": {
+      "tool": "get_design_context",
+      "skillNames": ["figma-design-to-code"],
+      "calledFirst": true,
+      "status": "passed"
+    },
+    "metadata": {
+      "tool": "get_metadata",
+      "status": "passed"
+    },
+    "assets": {
+      "tool": "download_assets",
+      "status": "passed",
+      "coverage": "complete",
+      "rawImageCount": 0,
+      "svgCount": 0
+    },
+    "properties": {
+      "tool": "use_figma",
+      "skillNames": ["figma-use"],
+      "readOnly": true,
+      "status": "not-needed"
+    }
+  },
+  "reference": {
+    "framePng": "reference/frame.png",
+    "width": 1080,
+    "height": 1350
+  },
+  "variants": [
+    {
+      "id": "<variant-id>",
+      "name": "variant:<variant-id>",
+      "frameNodeId": "<variant-frame-node-id>",
+      "width": 1080,
+      "height": 1350,
+      "referencePng": "reference/variants/<variant-id>.png"
+    }
+  ],
+  "fields": [
+    {
+      "id": "<field-id>",
+      "name": "field:<field-id>",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "layers": [
+    {
+      "id": "<figma-node-id>",
+      "variantId": "<variant-id>",
+      "name": "field:<field-id>",
+      "type": "TEXT",
+      "editable": true,
+      "fieldId": "<field-id>",
+      "geometry": {
+        "x": 72,
+        "y": 120,
+        "width": 936,
+        "height": 180,
+        "absoluteX": 72,
+        "absoluteY": 120
+      },
+      "zIndex": 0,
+      "visible": true,
+      "rotation": 0,
+      "opacity": 1,
+      "fills": [],
+      "strokes": [],
+      "effects": [],
+      "masks": [],
+      "parentId": "<variant-frame-node-id>",
+      "ancestorIds": ["<variant-frame-node-id>"],
+      "text": {
+        "characters": "<figma-text>",
+        "segments": [
+          {
+            "characters": "<figma-text>",
+            "fontFamily": "<font-family>",
+            "fontStyle": "<font-style>",
+            "fontSize": 88,
+            "lineHeight": 1.2,
+            "letterSpacing": 0,
+            "alignment": "LEFT",
+            "color": "#171717"
+          }
+        ]
+      }
+    }
+  ],
+  "modules": [],
+  "fonts": [
+    {
+      "family": "<font-family>",
+      "style": "<font-style>",
+      "available": true,
+      "licensed": true
+    }
+  ],
+  "assets": [],
+  "gates": {
+    "humanCompleteness": {
+      "status": "pending",
+      "reviewer": null,
+      "evidence": []
+    },
+    "humanFidelity": {
+      "status": "pending",
+      "reviewer": null,
+      "evidence": []
+    }
+  }
+}
