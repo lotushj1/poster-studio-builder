@@ -16,7 +16,7 @@
 | 變體選擇 | `目前版型` 下拉選單與四個變體卡 | `拍攝 gate：四卡與尺寸 readback` |
 | 下載動作 | `下載目前版型`、`下載全部 4 張` | `拍攝 gate：實際下載檔案 readback` |
 
-若最後 UI 的文字略有不同，影片以實際讀回為準，不用本稿預期名稱硬配畫面。正式 UI、Figma E2E、Sites live URL、輸出與 overlay 尚待拍攝，因此相應位置保留 `PENDING`。
+若最後 UI 的文字略有不同，影片以實際讀回為準，不用本稿預期名稱硬配畫面。公開 repo、匿名 README／repo 可讀、Skill Installer clean install 與 23/23 tests 已讀回；正式 UI、Figma E2E、Sites live URL、輸出與 overlay 尚待拍攝，因此相應位置保留 `PENDING`。
 
 ## 使用方式與證據標籤
 
@@ -106,32 +106,34 @@
 
 ### 畫面動作
 
-1. 在瀏覽器開啟預定的公開 repo：`https://github.com/lotushj1/poster-studio-builder`，畫面只露出公開 repo 名稱、分支或 tag；正式 repo 尚未由維護者建立並 readback 前，顯示 `PENDING｜公開 repo URL`，不把本機資料夾當成公開頁面。
+1. 在瀏覽器開啟已驗證的公開 repo：`https://github.com/lotushj1/poster-studio-builder`，用匿名視窗確認 README／repo 可讀，並顯示 default branch `main` 與 release tag `v0.1.0`；不把本機資料夾當成公開頁面。
 2. 顯示 repo 的 `SKILL.md`、`references/`、`assets/`、`scripts/` 與 `agents/`，說明這些是公開可審閱的規則與資源。
 3. 開啟 Codex 桌面 App 的新對話，直接貼上公開 GitHub URL，說：「請安裝這個公開的 Poster Studio Builder Skill；安裝完成後，下一個 task 再確認它是否可用。」觀眾不需要下載 ZIP，也不需要操作終端機或 Skill 設定頁。
-4. 錄下 Codex 的安裝回覆；下一個 task 開始時，再問「請使用 Poster Studio Builder Skill，先回讀 Figma Frame gate」，確認 Skill 已可被使用。
+4. 錄下 Codex 的安裝回覆；下一個 task 開始時，再問「請使用 Poster Studio Builder Skill，先回讀 Figma Frame gate」。這個 Codex UI live readback 尚未取得，拍攝時若仍未讀到就顯示 `PENDING`。
 
-**製作備註（不上鏡，不列為觀眾步驟）：** 官方 `skill-installer` 的安裝紀錄應讀回 `repo=lotushj1/poster-studio-builder`、`path=.`、`name=poster-studio-builder`、目的地 `~/.codex/skills`；安裝完成後，要到下一個 task 才確認可用。
+**製作備註（不上鏡，不列為觀眾步驟）：** 官方 `skill-installer` 的安裝紀錄已驗證 `repo=lotushj1/poster-studio-builder`、`path=.`、`name=poster-studio-builder`、目的地 `~/.codex/skills`；匿名 README／repo 可讀，clean install 與 23/23 tests 已通過。安裝完成後仍要到下一個 task 確認可用，這個 Codex UI readback 保留為拍攝日 `PENDING`。
 
 ### 逐字旁白
 
-> 「先從公開 repo 取得 Skill。正式上片時，這裡要顯示已公開、可點開、可讀取的 GitHub 頁面，以及本次影片使用的 branch 或 tag。接著我把公開 GitHub URL 貼進 Codex 桌面 App 的新對話，請 Codex 安裝這個 Skill。安裝完成後不要在同一段對話裡假設它已經可用，下一個 task 再要求使用 Poster Studio Builder，回讀它是否出現。這一步只是安裝規則，不代表已經有任何 Figma 來源，也不代表 Site 已經產生。
+> 「先從公開 repo 取得 Skill。這個 repo 已經可以用匿名視窗讀取，default branch 是 main，release tag 是 v0.1.0；幕後的 clean install 與 23/23 tests 也已通過。接著我把公開 GitHub URL 貼進 Codex 桌面 App 的新對話，請 Codex 安裝這個 Skill。安裝完成後不要在同一段對話裡假設它已經可用，下一個 task 再要求使用 Poster Studio Builder，回讀它是否出現。這個 Codex UI live readback 目前仍是拍攝 gate，要保持 PENDING。這一步只是安裝規則，不代表已經有任何 Figma 來源，也不代表 Site 已經產生。
 >
 > 觀眾只需要操作 GitHub 網頁與 Codex 桌面 App，再進入 Figma 與 Sites；本片不把命令列或設定頁當成主要操作方式。若需要在幕後跑結構驗證，影片只放一張短結果卡，說明哪個 verifier 通過、哪個 gate 還在等，不把技術命令複製貼上變成教學流程。公開 repo 的存在也不等於生成 Site 會公開；Skill、來源包、generated Site 與 Site 權限是不同的角色。」
 
 ### 螢幕字卡
 
-`貼上公開 URL`　`下一個 task 可用`　`先不建置，等 Figma Frame gate`
+`公開 repo：main／v0.1.0`　`clean install／23/23 tests`　`下一個 task UI readback：PENDING`　`先不建置，等 Figma Frame gate`
 
 ### B-roll／剪輯提示
 
 - GitHub 畫面遮住帳號頭像、通知數、私人分頁與瀏覽器自動完成資料。
 - Codex 安裝回覆與下一個 task 的可用性只留必要文字，不顯示其他工作區名稱。
-- 若正式 repo 未在拍攝前公開，整段改拍「公開 repo URL：PENDING」的透明揭露卡，不用本機路徑冒充開源頁面。
+- 公開 repo 畫面保留匿名視窗、`main`、`v0.1.0` 與 README；Codex 下一個 task 的可用性若沒有 live readback，就保留 `PENDING`。
 
 ### 證據／pending 標籤
 
-`PENDING｜正式 GitHub repo URL、公開狀態、使用 branch/tag、安裝回覆與下一個 task 可用性 readback。`
+`已讀回：公開 repo URL、匿名 README／repo 可讀、default branch main、release tag v0.1.0、Skill Installer clean install、23/23 tests。`
+
+`PENDING｜Codex UI 下一個 task 實際讀到 Skill 的 live readback。`
 
 ---
 
@@ -548,7 +550,7 @@
 
 `已讀回：失敗處理原則依 Skill contract。`
 
-`PENDING｜正式公開 repo 的 issue／PR 設定與維護者回應，以拍攝當日 readback 為準。`
+`PENDING｜公開 repo 的 issue／PR 設定與維護者回應，以拍攝當日 readback 為準；repo 公開狀態已讀回。`
 
 ---
 
@@ -560,11 +562,11 @@
 
 1. 回到章 1 的完成品，重播四卡預覽與四個下載檔案各 1 秒。
 2. 顯示三個行動：準備 Frame、確認五種命名、跑完整驗收。
-3. 最後一格顯示 `腳本完成 ≠ 影片已錄製／GitHub 已發布／Sites 已部署`。
+3. 最後一格顯示 `腳本完成 ≠ Codex UI Skill readback／Figma 真實 Frame E2E／Sites 正式部署／影片已錄製、剪輯與上架`。
 
 ### 逐字旁白
 
-> 「總結一下：固定版型、可編輯欄位、可追溯 source package，才是這個工作流的核心。你可以先準備一個有權使用的 Figma Design Frame，確認五種 naming contract，再在 Codex 桌面 App 要求需求 readback。等來源、瀏覽器成品、Figma 對照與 Sites 權限都真的讀回，再把狀態從 pending 改成通過。正式公開 repo 通過 readback 後，影片說明欄才會放上連結；在那之前請以 PENDING 為準。記得，腳本完成不等於影片已錄製、GitHub 已發布或 Sites 已部署。」
+> 「總結一下：固定版型、可編輯欄位、可追溯 source package，才是這個工作流的核心。你可以先準備一個有權使用的 Figma Design Frame，確認五種 naming contract，再在 Codex 桌面 App 要求需求 readback。公開 repo 已經可以匿名讀取，default branch 是 main，release tag 是 v0.1.0，clean install 與 23/23 tests 也已通過；但 Codex UI 下一個 task 的 Skill readback、真實 Figma Frame E2E、瀏覽器成品與 Sites 權限，仍要在對應畫面讀回後才能改成通過。記得，腳本完成不等於 Codex UI Skill readback、Figma 真實 Frame E2E、Sites 正式部署或影片已錄製、剪輯與上架。」
 
 ### 螢幕字卡
 
@@ -577,7 +579,7 @@
 
 ### 證據／pending 標籤
 
-`PENDING｜影片錄製、剪輯、公開 repo 與 Sites 部署均須另行取得證據。`
+`PENDING｜Codex UI 下一個 task Skill readback、Figma 真實 Frame E2E、Sites 正式部署、影片錄製、剪輯與上架均須另行取得證據。`
 
 ---
 
@@ -610,7 +612,7 @@
 - 任何 token、密碼、cookie、API key、access code、瀏覽器密碼管理器、剪貼簿內容與環境變數都不入鏡、不放字幕、不放 source package。
 - 拍攝前關閉通知、聊天、雲端硬碟同步提示、瀏覽器自動填入、私人分頁與檔案預覽；錄音前清空桌面與下載資料夾中無關檔案。
 - issue／PR 範例只放去識別化錯誤；真實 Figma export、照片與素材授權證據不得上傳到公開 issue。
-- 影片描述只放正式公開 repo、已確認的公開文件與通用流程；若網址尚未 verified，使用 `PENDING`，不上架私人連結。
+- 影片描述放正式公開 repo URL、已確認的公開文件與通用流程；目前 URL 已 verified，拍攝日若匿名 readback 異常才改用 `PENDING`，不上架私人連結。
 
 # 錄製檔命名與資料夾
 
@@ -757,21 +759,21 @@ psb-demo/
 
 影片案例完全使用虛構的「示範品牌／每週設計直播」資料，包含 1080×1350 與 1080×1920 的四種 variant、主持人與兩位示範來賓。你會看到內容、素材、調整、匯出四個控制 tabs、目前／全部預覽、圖片構圖、字體安全堆疊、預設組合、localStorage／IndexedDB 本機保存、私人 Sites 與 runtime credential boundary。
 
-重要提醒：截圖、預覽、測試數或看似成功的按鈕都不能取代實際成品與 live readback。影片中標記 `PENDING` 的 Figma E2E、Sites URL、GitHub 公開 repo、輸出檔案或 overlay，需要在拍攝日取得對應證據後才能改成 PASS。不要在公開影片、Issue 或 source package 放入 token、密碼、私人 URL 或未授權素材。
+重要提醒：截圖、預覽、測試數或看似成功的按鈕都不能取代實際成品與 live readback。影片中標記 `PENDING` 的 Codex UI 下一個 task readback、Figma E2E、Sites URL、輸出檔案或 overlay，需要在拍攝日取得對應證據後才能改成 PASS。不要在公開影片、Issue 或 source package 放入 token、密碼、私人 URL 或未授權素材。
 
-公開 repo：`PENDING｜正式 repo 建立並通過公開狀態 readback 後填入`
+公開 repo：`https://github.com/lotushj1/poster-studio-builder`（default branch：`main`；release tag：`v0.1.0`；匿名 README／repo 可讀；Skill Installer clean install、23/23 tests 已通過）
 
 # 置頂留言草稿
 
 這支影片的判斷順序是：先確認 Figma Design Frame，再確認五種命名，接著回讀 source package，最後才驗證瀏覽器成品與 Sites 權限。若你只拿到截圖、缺 node-specific URL、沒有資產授權，請先停在對應 gate，不要把預覽當成完成。
 
-如果影片說明欄已放上正式公開 repo，請在其中建立去識別化 issue：附版本、瀏覽器、最小重現、預期／實際與 verifier 結果；遮掉 file key、node ID、帳號、私人 URL、照片與所有 credential。若 repo 尚未通過公開狀態 readback，先保留問題資料，等連結可用再提交。影片中的示範資料都是虛構值，請換成你有權使用的來源。
+公開 repo 已通過匿名讀取、main／v0.1.0 與 clean install／23/23 tests readback；若要在其中建立去識別化 issue，附版本、瀏覽器、最小重現、預期／實際與 verifier 結果，並遮掉 file key、node ID、帳號、私人 URL、照片與所有 credential。影片中的示範資料都是虛構值，請換成你有權使用的來源。
 
 # CTA
 
 影片口播 CTA：
 
-> 「先準備一個你有權使用、而且可以讀回的 Figma Design Frame；再確認五種命名前綴與需求清單。等正式公開 repo 通過 readback 後，把 URL 貼給 Codex 桌面 App，請它安裝 Skill，再於下一個 task 要求 readback。看到完整來源、成品與權限證據，再決定是否部署。若遇到問題，請等 issue 入口可用後，用去識別化資料回報，讓下一個人可以重現。」
+> 「先準備一個你有權使用、而且可以讀回的 Figma Design Frame；再確認五種命名前綴與需求清單。公開 repo 已經可匿名讀取，default branch 是 main，release tag 是 v0.1.0；把 URL 貼給 Codex 桌面 App，請它安裝 Skill，再於下一個 task 要求 readback。看到完整來源、成品與權限證據，再決定是否部署。若遇到問題，請等 issue 入口可用後，用去識別化資料回報，讓下一個人可以重現。」
 
 描述欄 CTA：
 
@@ -781,7 +783,7 @@ psb-demo/
 
 ## 必要來源與畫面
 
-- 最終版 GitHub 公開 repo URL、branch/tag 與公開狀態 readback。
+- 已驗證 GitHub 公開 repo：`https://github.com/lotushj1/poster-studio-builder`、default branch `main`、release tag `v0.1.0`、匿名 README／repo 可讀、Skill Installer clean install、23/23 tests。
 - Codex 桌面 App 的安裝對話與下一個 task 的可用性畫面。
 - 虛構 Figma 檔案、四個 Design Frame、五種命名 contract 與需求 readback。
 - 完整 source package：manifest、Frame export、每個 variant export、圖片／SVG 本地資產。
@@ -811,7 +813,7 @@ psb-demo/
 ## 錄音前
 
 - [ ] 用 final UI 實際畫面逐字 readback `內容／素材／調整／匯出`、`目前版型／全部版型` 與下載按鈕名稱。
-- [ ] 確認正式 GitHub repo 已公開；未公開就保留 PENDING，不用本機畫面替代。
+- [ ] 拍攝日重新確認正式 GitHub repo 可匿名讀取、default branch `main`、release tag `v0.1.0`；若讀回異常，畫面才標 PENDING，不用本機畫面替代。
 - [ ] 確認 Figma Frame 的權限、Frame type、四個尺寸、node-specific URL 與命名 readback；所有未知項目列在 evidence log。
 - [ ] 確認示範人物、日期、品牌、圖片、輸出檔名與網址全為虛構或已獲錄製授權。
 - [ ] 關閉通知、聊天、私人分頁、密碼管理器與自動填入；清理桌面與下載視窗。
@@ -842,11 +844,11 @@ psb-demo/
 ## 上片前
 
 - [ ] 標題、縮圖、描述、置頂留言、章節時間戳與 CTA 互相一致。
-- [ ] 公開 repo 連結已用無登入視窗測試；若還沒有正式 URL，描述與置頂留言明確標 PENDING。
+- [ ] 用無登入視窗重新確認公開 repo URL、`main`、`v0.1.0` 與 README／repo 可讀；若拍攝日 readback 異常，描述與置頂留言才標 PENDING。
 - [ ] 影片資訊沒有私人 Figma URL、Site URL、帳號 email、commit 私有資訊或 credential。
 - [ ] 下載字幕檔與影片在獨立播放器中重看；搜尋一次所有敏感名稱禁用項目與課內語彙。
-- [ ] 上片後只宣稱影片已發布；不要把影片畫面自動升級為 Figma E2E、GitHub 發布或 Sites 部署證據。
+- [ ] 上片後只宣稱影片已發布；不要把影片畫面自動升級為 Figma E2E 或 Sites 部署證據。
 
 # 最終狀態欄
 
-`腳本完成不等於影片已錄製、GitHub 已發布或 Sites 已部署。`
+`腳本完成不等於 Codex UI Skill readback、Figma 真實 Frame E2E、Sites 正式部署或影片已錄製、剪輯與上架。`
