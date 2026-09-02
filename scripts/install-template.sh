@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # 把 Poster Studio 編輯器模板裝進一個 vinext + Cloudflare 專案。
-# 新專案請先跑 init-cloudflare-project.sh，不要複製展示站 weekly-live-poster-studio。
+# 新專案請先跑 init-cloudflare-project.sh，不要複製現成專案當起點。
 # 用法：install-template.sh <目標專案目錄> [--force]
 #   --force：連 app/studio/config.ts 也覆蓋（預設保留既有設定）
 set -euo pipefail

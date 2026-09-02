@@ -4,8 +4,8 @@
 
 這份文件給**第一次使用的人**：裝好公開 Skill 之後，用 Cursor、Claude Code 或 Codex，都能新建出這樣的網站。
 
-- 公開 Skill（給大家用）：<https://github.com/lotushj1/poster-studio-builder>
-- 凱文設計展示站只示範成品可以有多漂亮，**不要複製那座站**。你會得到自己的網站、自己的 Figma、自己的網址。質感要比照展示站，不是比較陽春的複製品。
+- 公開 Skill：<https://github.com/lotushj1/poster-studio-builder>
+- 用自己的 Figma Frame 建自己的網站，不要複製別人的現成專案。
 
 ## 這是什麼
 
@@ -73,7 +73,6 @@ Codex Desktop 也可以只貼 GitHub 網址，請它用內建安裝器安裝。
 請使用 poster-studio-builder，用這個 Figma Frame 做一個海報產生器網站：
 https://www.figma.com/design/<檔案>/<名稱>?node-id=<數字>-<數字>
 發佈到 Cloudflare Workers（免費 workers.dev）。
-網站介面質感要比照凱文設計展示站，海報畫面必須忠實於這個 Figma Frame。
 ```
 
 補充這幾句會更準：
@@ -85,7 +84,7 @@ https://www.figma.com/design/<檔案>/<名稱>?node-id=<數字>-<數字>
 
 AI 會先讀你的 Figma、整理會變與不會變的欄位，再請你確認。**確認前它不該直接開站。** 你要看它讀到的版面、欄位和固定素材是否正確。圖層名稱不清楚時，它會先提出命名建議，等你點頭才改。
 
-不要請它去複製凱文設計的展示站專案。新站會建在你自己的資料夾，發到你自己的 Cloudflare。
+不要請它去複製別人的現成專案。新站會建在你自己的資料夾，發到你自己的 Cloudflare。
 
 ## 第三步：檢查、發佈、拿到網址
 
@@ -117,7 +116,7 @@ AI 會先讀你的 Figma、整理會變與不會變的欄位，再請你確認�
 |---|---|
 | 只有截圖，沒有 Frame 網址 | 先回 Figma 找到完整畫面框，複製含 `node-id` 的網址。 |
 | AI 說讀不到 Figma | 確認連結能開、對方有權限、網址是 `/design/` 不是舊的 `/file/`。 |
-| 它開始複製展示站 | 停下，改叫它用這個 Skill 新建，不要 clone 別人的專案。 |
+| 它開始複製別人的專案 | 停下，改叫它用這個 Skill 新建。 |
 | 本機預覽好看、線上還沒更新 | 線上要另外發佈一次。沒發佈就不算大家看得到。 |
 | 想再做第二座站 | 換一張 Figma Frame，再跑一次第二步。每座站各自有自己的資料夾與網址。 |
 

@@ -1,6 +1,6 @@
 # 部署與交付
 
-Kevin 的每週直播課產生器是**展示站**，不要拿來當別人的起點。其他人一律用這個 Skill 建自己的站，發佈走 **Cloudflare Workers**。
+新站一律用這個 Skill 從頭建，發佈走 **Cloudflare Workers**。不要複製現成專案當起點。
 
 部署前提：Figma node-specific Frame gate、source-package validator、requirements readback、`npm test`、`npm run build`、瀏覽器實填、輸出 PNG 與 Figma export 對照、human completeness／fidelity 都已通過。Runtime 不讀 Figma、不保存 Figma credential。
 

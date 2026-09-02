@@ -2,11 +2,9 @@
 
 寫 config 時的設計依據。優先順序：Figma Frame 的可驗證結構與尺寸 > 資訊傳達 > 內容配置 > 視覺層次 > 創意。沒有通過 node-specific Figma Frame gate 時，不建立生產版 config。
 
-## 預設設計標準：mono-v1（chrome 與展示站同一套）
+## 預設設計標準：mono-v1
 
 使用者沒有指定風格時，固定採用 `config.designSystem.id = "mono-v1"`：紙色 `#f7f6f2`、墨色 `#171717`、灰階輔助文字與線條，最多一個可替換的中性強調色。介面 token 與海報 token 要同一套，避免預覽、表單與輸出各自長樣。
-
-編輯器 chrome 的品質標竿是凱文設計展示站：36px header、黑白中性色、清楚的預覽與控制層次、圖層／字體／undo 等完整工具。Skill 不得交付比較陽春的介面。海報畫面的漂亮來自使用者的 Figma Frame，不是把展示站的 PressPlay 素材拷過來。
 這是版本化起點，不是 Figma 來源的替代品。Figma Frame 已指定品牌色與樣式時，依 manifest 建立新的 design-system id 與 token，並在需求確認單記錄。
 
 ## Figma 來源的不可變規則

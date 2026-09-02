@@ -4,7 +4,7 @@
 
 **完整使用說明（Cursor／Claude Code／Codex 都能照做）：** [docs/guide.md](docs/guide.md)
 
-凱文設計有一座展示站（每週直播課海報產生器），用來示範成品可以有多漂亮。**凱文自己建新站也用這個 Skill**；給大家的同樣是這個 Skill。請不要去複製展示站專案（裡面有 PressPlay 素材），但做出來的網站質感必須跟展示站同一水準：精緻的編輯介面，加上忠實於你自己 Figma Frame 的海報畫面。
+用這個公開 Skill 就能從自己的 Figma Frame 建一座海報產生器網站。請不要去複製別人的現成專案；版面與固定素材來自你自己的 Figma。
 
 ## 先知道這三件事
 
@@ -46,10 +46,9 @@ Codex Desktop 也可以只貼 GitHub 網址，請它用內建 Skill Installer �
 請使用 poster-studio-builder，用這個 Figma Frame 做一個海報產生器網站：
 https://www.figma.com/design/<檔案>/<名稱>?node-id=<數字>-<數字>
 發佈到 Cloudflare Workers（免費 workers.dev）。
-網站介面質感要比照凱文設計展示站，海報畫面必須忠實於這個 Figma Frame。
 ```
 
-對方會得到**自己的**網站（自己的 Figma、自己的網址），質感要比照展示站，不是比較陽春的複製品。
+對方會得到**自己的**網站：自己的 Figma、自己的網址。
 
 ## 四步開始使用
 
@@ -104,7 +103,7 @@ https://www.figma.com/design/<檔案>/<名稱>?node-id=<數字>-<數字>
 
 ### 新專案（給其他人的站）
 
-不要複製凱文設計展示站。在本 repo 根目錄執行：
+新站請用這個 Skill 從頭建，不要複製別人的現成專案。在本 repo 根目錄執行：
 
 ```bash
 bash scripts/init-cloudflare-project.sh /path/to/new-project <worker-name>

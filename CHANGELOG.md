@@ -2,10 +2,9 @@
 
 ## Unreleased
 
-- 產品分工：展示站是品質標竿；凱文與其他人一律用這個 Skill 建站。新站預設建在 Cloudflare Workers，不再走 ChatGPT Sites。
+- 新站預設建在 Cloudflare Workers，不再走 ChatGPT Sites。
 - 新增 `scripts/init-cloudflare-project.sh`；Cursor／Claude Code／Codex 都可安裝使用。
 - 新增公開使用說明 [docs/guide.md](docs/guide.md)。
-- 已知缺口：Skill 模板 chrome 尚未回寫展示站（36px header、圖層排序、icon 按鈕）。下一次要把展示站編輯器回寫進 `assets/template/`，不含 PressPlay config／素材。
 
 ## v0.1.0 — 2026-08-24
 

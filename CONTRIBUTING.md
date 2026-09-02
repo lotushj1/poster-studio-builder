@@ -24,6 +24,6 @@ npm test
 node --experimental-strip-types --test assets/template/tests/*.test.mjs
 ```
 
-完整交付還需要用 `scripts/init-cloudflare-project.sh` 建乾淨的 Cloudflare vinext 專案、再裝範本，跑 `npm run lint`、`npm test`、`npm run build`，並用瀏覽器實測 1440×1000、1024×900、390×844 的實際成品。不要 clone 凱文設計的展示站 `weekly-live-poster-studio`。若無法完成 runtime 或人眼檢查，請明確標示「已製作但未驗證」。
+完整交付還需要用 `scripts/init-cloudflare-project.sh` 建乾淨的 Cloudflare vinext 專案、再裝範本，跑 `npm run lint`、`npm test`、`npm run build`，並用瀏覽器實測 1440×1000、1024×900、390×844 的實際成品。不要 clone 現成專案當起點。若無法完成 runtime 或人眼檢查，請明確標示「已製作但未驗證」。
 
 每次修改最多三輪自我修正；同方向連續兩次失敗時，停止堆 patch，回頭檢查根因與驗收邊界。

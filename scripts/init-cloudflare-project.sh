@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# 為「其他人的新站」建立 Cloudflare vinext 專案。
-# 不要複製 Kevin 的 weekly-live-poster-studio 展示站。
+# 為新站建立 Cloudflare vinext 專案。
+# 不要複製現成專案當起點。
 # 用法：init-cloudflare-project.sh <新專案目錄> [worker-name]
 set -euo pipefail
 
