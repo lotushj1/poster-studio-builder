@@ -1,7 +1,7 @@
 # config.ts 怎麼寫
 
 `app/studio/config.ts` 匯出 `templateConfig: TemplateConfig`。完整型別在 `app/studio/types.ts`，動手前先讀一次；這份只講會影響決策的部分。
-生產專案的 config 必須由 Codex 依通過驗證的 Figma source manifest 產生，不讓使用者手寫，也不能在沒有 Frame link 時拿模板範例冒充設計來源。範例 config（匿名固定版型海報，四個變體）只用來說明引擎能力。預設 `mono-v1` 是可辨識、可版本化的中性黑白編輯風格標準。
+生產專案的 config 必須由執行此 Skill 的 agent 依通過驗證的 Figma source manifest 產生，不讓使用者手寫，也不能在沒有 Frame link 時拿模板範例冒充設計來源。範例 config（匿名固定版型海報，四個變體）只用來說明引擎能力。預設 `mono-v1` 是可辨識、可版本化的中性黑白編輯風格標準。
 
 ## Figma 命名到 config 的映射
 

@@ -6,7 +6,7 @@
 
 - 請使用者提供可存取的 Figma Design Frame URL：`https://www.figma.com/design/<fileKey>/<fileName>?node-id=<int>-<int>`。
 - 檔案 URL、`/file/`、Slides、Board、Make、缺 `node-id`、node ID 不明或無權限都停止，不能以參考圖片、截圖或手寫幾何替代。沒有 node-specific `/design/` Frame link 時，參考圖片與截圖不接受為 build source。
-- Codex 先依 [figma-frame-workflow.md](figma-frame-workflow.md) 載入 `figma-design-to-code`，呼叫 `get_design_context`，確認目標確實是 Frame 並讀到尺寸。未通過前不安裝模板、不寫 `config.ts`。
+- 執行此 Skill 的 agent 先依 [figma-frame-workflow.md](figma-frame-workflow.md) 載入 `figma-design-to-code`，呼叫 `get_design_context`，確認目標確實是 Frame 並讀到尺寸。未通過前不安裝模板、不寫 `config.ts`。
 - Frame 是視覺正本。另外確認目標是「結構一致」還是「盡量貼近 Figma export」。後者仍需原始素材、字體、overlay／difference 與人工驗收，不能承諾 pixel identity。
 
 ## 第 0.5 步：`get_design_context` 成功後先完成命名 gate
@@ -50,7 +50,7 @@
 
 把整理好的清單與命名 proposal 貼出來，問：「以上是我整理的固定元素、可填欄位、變體、模組與命名。有沒有漏掉圖上一定要有的東西？命名 proposal 是否確認？」
 
-命名 readback verified 且使用者確認需求後，Codex 產生 requirements readback 與 Figma manifest，先跑：
+命名 readback verified 且使用者確認需求後，執行此 Skill 的 agent 產生 requirements readback 與 Figma manifest，先跑：
 
 ```bash
 node scripts/validate-source-package.mjs <source-package>/manifest.json

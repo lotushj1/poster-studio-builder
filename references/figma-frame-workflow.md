@@ -111,7 +111,7 @@ get_design_context(
 
 ## 4. 產生 source package 與 config
 
-Codex 依 MCP 回傳資料產生 manifest 與本地素材，不讓使用者手動編輯 manifest 來宣稱完成。schema、範本與 Node 內建 validator 見：
+執行此 Skill 的 agent 依 MCP 回傳資料產生 manifest 與本地素材，不讓使用者手動編輯 manifest 來宣稱完成。schema、範本與 Node 內建 validator 見：
 
 - [source-package.md](source-package.md)
 - `assets/source-package/manifest.template.json`

@@ -1,7 +1,7 @@
 interface:
   display_name: "Poster Studio Builder"
   short_description: "用 Figma Design Frame 建立固定版型海報產生器 Site"
-  default_prompt: "用 $poster-studio-builder 從這個 Figma Design Frame 建立海報產生器：https://www.figma.com/design/<fileKey>/<fileName>?node-id=<int>-<int>；若 manifest-contract 圖層未命名，先提出命名方案等我確認。"
+  default_prompt: "用 $poster-studio-builder 從這個 Figma Design Frame 建立海報產生器並發到 Cloudflare Workers：https://www.figma.com/design/<fileKey>/<fileName>?node-id=<int>-<int>；若 manifest-contract 圖層未命名，先提出命名方案等我確認。"
 
 policy:
   allow_implicit_invocation: true

@@ -7,6 +7,8 @@ metadata:
 
 # Poster Studio Builder：Figma Design Frame-only 海報工具
 
+這是給**任何人**（含凱文自己）建立海報產生器網站的 Skill。凱文設計的「每週直播課海報產生器」是品質標竿與展示站，不是私人加強版，也不要 clone 那個 private repo 當起點。Skill 產出的網站必須達到同一套視覺標準：編輯器 chrome 精緻（不是後台表單），海報畫面忠實於使用者自己的 Figma Frame。
+
 這是 Figma Design Frame-only workflow。產出物不是一張圖，而是一個可以反覆使用的小網站：使用者每次只填會變的欄位，固定元素、版面與素材由 Figma Frame 轉成可追溯的設定，再由內附的 React + canvas 編輯器預覽與匯出。沒有 node-specific `/design/` Frame link 時，截圖、參考圖片、檔案 URL 與手寫幾何都不接受為 build source；只需要一張圖片時改用 `carousel-cards`，不在這裡建立工具。
 
 `assets/template/` 是已實測的 `mono-v1` 中性黑白模板，保留四變體下拉選擇、全部預覽格、目前／全部匯出、variant-specific modules 與預設關閉的本機字體目錄。它是執行引擎，不是沒有 Figma 來源時的海報設計 fallback。
@@ -40,10 +42,11 @@ Figma MCP 只在收到 Frame link 後使用。先載入 `figma-design-to-code`�
 1. 讀 [interview.md](references/interview.md)，整理用途、尺寸、固定元素、可變欄位、變體、模組、字體與匯出需求，做 requirements readback。
 2. 通過 node-specific URL／權限／Frame 身分 gate，依 Figma MCP 讀取順序抽取 hierarchy、geometry、文字 segments、樣式、assets 與 module ancestry。
 3. 在 `get_design_context` 成功後、source manifest／config／模板前，依 [figma-naming.md](references/figma-naming.md) 只 audit manifest-contract nodes。命名已合規就直接通過；缺漏或混用就提出 proposal，等使用者確認後才可 name-only rename，再以 metadata/read-only structured readback 驗證。未驗證前 generation gate 保持 blocked。
-4. 由 Codex 產生 source package manifest 與本地資產，跑 `scripts/validate-source-package.mjs`。manifest 不能要求使用者手寫，格式見 [source-package.md](references/source-package.md)。
+4. 由執行此 Skill 的 agent 產生 source package manifest 與本地資產，跑 `scripts/validate-source-package.mjs`。manifest 不能要求使用者手寫，格式見 [source-package.md](references/source-package.md)。
 5. 把 naming status/evidence、manifest 與需求確認單回讀給使用者確認。除非使用者已明確指定直接建置且沒有待決策，確認前不安裝模板或寫 config。
-6. 依 [config-guide.md](references/config-guide.md) 將 stable `variant:`、`field:`、`image:`、`fixed:`、`module:` 映射成 `app/studio/config.ts`，把已下載資產放入 `public/assets/`，再執行 `scripts/install-template.sh <project>`。模板能力保持：四變體、同步預覽、variant-specific module、目前／全部 PNG／JPG 匯出與 `fonts.localCatalog: false`。
-7. 依 [verify.md](references/verify.md) 做測試、build、瀏覽器實填、每個變體匯出與 Figma Frame 對照，最後才交給 [deploy.md](references/deploy.md) 做私人 Sites 部署。
+6. 若還沒有專案：`bash scripts/init-cloudflare-project.sh <dir> <worker-name>`，再 `bash scripts/install-template.sh <dir>`。不要 clone Kevin 的展示站 `weekly-live-poster-studio`。
+7. 依 [config-guide.md](references/config-guide.md) 將 stable `variant:`、`field:`、`image:`、`fixed:`、`module:` 映射成 `app/studio/config.ts`，把已下載資產放入 `public/assets/`。模板能力保持：四變體、同步預覽、variant-specific module、目前／全部 PNG／JPG 匯出與 `fonts.localCatalog: false`。
+8. 依 [verify.md](references/verify.md) 做測試、build、瀏覽器實填、每個變體匯出與 Figma Frame 對照，最後依 [deploy.md](references/deploy.md) 發到 Cloudflare Workers。
 
 ### B. 更新既有 Site
 
@@ -56,7 +59,7 @@ Figma MCP 只在收到 Frame link 後使用。先載入 `figma-design-to-code`�
 - 欄位或 schema 變更：`config.version` 加 1；只改視覺且 schema 不變則保留版本並記錄。
 - 更新 local source/assets 後，驗證變更與未變更變體，只有在使用者授權時重新部署。
 
-已部署的靜態 Site 不會在 runtime 接受 Figma link，也不保存 Figma credential。Frame link 只由 Codex 在一次建置／更新工作中使用。
+已部署的靜態 Site 不會在 runtime 接受 Figma link，也不保存 Figma credential。Frame link 只在一次建置／更新工作中使用。
 
 ## 參考文件路由
 
@@ -69,7 +72,7 @@ Figma MCP 只在收到 Frame link 後使用。先載入 `figma-design-to-code`�
 - `config.ts`、fields、layers、modules、variants：讀 [config-guide.md](references/config-guide.md)。
 - 字體授權、fallback 與本機字體目錄：讀 [fonts.md](references/fonts.md)。
 - 測試、瀏覽器、PNG 尺寸、overlay／difference 與人眼驗收：讀 [verify.md](references/verify.md)。
-- Sites 初始化、私人部署與更新：讀 [deploy.md](references/deploy.md)。
+- Cloudflare Workers 新站與更新：讀 [deploy.md](references/deploy.md)。
 
 ## 模板能力與限制
 

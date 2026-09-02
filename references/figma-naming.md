@@ -51,7 +51,7 @@ Audit 只列入上述角色。每個同一 variant 的 contract name、field ID�
 1. 每個 mutation 傳入 audited 的精確 node ID、audited current name 與 confirmed proposed name；不可用名稱搜尋、順序或模糊匹配找 node。
 2. `use_figma` 呼叫必須傳 `skillNames: "figma-use"`。先以 exact ID 取得 node，確認其目前 `node.name` 仍等於 audited current name；任何 stale／concurrent change 都要 abort 該 batch，不可覆蓋。
 3. 每次最多 10 個 name mutations。唯一允許的畫布變更是 `node.name = proposedName`；不得改文字、geometry、hierarchy、z-order、styles、assets、visibility、content 或其他屬性。
-4. 回傳每個實際變更的 node ID 與 old/new name，並在 Codex 外部保留 rollback map（`nodeId`, `oldName`, `newName`）。完成一批後先做 readback，再決定是否送下一批。
+4. 回傳每個實際變更的 node ID 與 old/new name，並在 agent 工作區外部保留 rollback map（`nodeId`, `oldName`, `newName`）。完成一批後先做 readback，再決定是否送下一批。
 5. 多批次中若發生 partial failure、stale ID 或權限錯誤，立即停止並報告 `applied`／`unapplied`、錯誤與 rollback map；不要默默繼續，也不要在可能存在 concurrent edits 時自動 rollback。任何 rollback 都要重新讀取目前名稱並取得新的明確指示。
 
 一批的 `use_figma` script 可採兩階段做法：先以 exact ID 讀取並檢查所有 audited current names，全部一致後才改名；不要在同一批中邊搜尋邊寫入。下列是 10 個以內 proposal 的最小模式，實際執行前要替換成已確認的 exact IDs 與名稱：

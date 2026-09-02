@@ -2,6 +2,10 @@
 
 把已經在 Figma 做好的固定海報版型，變成可以反覆使用的網頁工具。之後只要在瀏覽器更新文字、日期、照片等會變動的內容，就能預覽並下載 PNG 或 JPG。
 
+**完整使用說明（Cursor／Claude Code／Codex 都能照做）：** [docs/guide.md](docs/guide.md)
+
+凱文設計有一座展示站（每週直播課海報產生器），用來示範成品可以有多漂亮。**凱文自己建新站也用這個 Skill**；給大家的同樣是這個 Skill。請不要去複製展示站專案（裡面有 PressPlay 素材），但做出來的網站質感必須跟展示站同一水準：精緻的編輯介面，加上忠實於你自己 Figma Frame 的海報畫面。
+
 ## 先知道這三件事
 
 - 它不會替你設計海報，也不是自由排版工具。你要先有一張已完成的 Figma 固定版型。
@@ -23,17 +27,29 @@
 1. 一個可讀取的 Figma 海報 Frame 網址，網址中要有 `/design/` 和 `node-id=`。
 2. 讀取該 Frame 以及使用其中圖片、Logo、字體的權限。能打開連結，不代表所有素材都能公開或商業使用。
 3. 一份簡單的清單：哪些文字和照片會換、哪些內容必須固定，以及要輸出哪些尺寸。
-4. Codex Desktop，用來安裝這套給 Codex 使用的 Skill（工作規則）。
+4. Cursor、Claude Code 或 Codex，以及一個免費 [Cloudflare](https://dash.cloudflare.com/sign-up) 帳號（用來發佈網站）。
 
 如果手上只有截圖，請先回到 Figma 找到對應的完整 Frame 和節點網址；不要用截圖猜出版面或圖層位置。
 
-## 在 Codex Desktop 安裝
+## 安裝這個 Skill
 
-在 Codex Desktop 開新對話，貼上這句話：
+對 Cursor、Claude Code 或 Codex 開新對話，貼：
 
-> 請從這個公開 GitHub 專案頁安裝 Poster Studio Builder Skill（工作規則）：https://github.com/lotushj1/poster-studio-builder
+> 請安裝公開 Skill：https://github.com/lotushj1/poster-studio-builder  
+> Skill 名稱 `poster-studio-builder`。安裝後請告訴我，我會在下一則訊息用它。
 
-安裝完成後，開一個新的對話或工作回合，讓 Codex 載入剛安裝的工作規則。你不需要把本機資料夾當成公開來源，也不要把密碼、服務金鑰或私人 Figma 連結放進公開 GitHub 專案。
+Codex Desktop 也可以只貼 GitHub 網址，請它用內建 Skill Installer 安裝。安裝後開新對話，讓規則生效。不要把密碼或私人 Figma 連結放進公開 GitHub。
+
+## 請別人幫你做站時，貼這段
+
+```
+請使用 poster-studio-builder，用這個 Figma Frame 做一個海報產生器網站：
+https://www.figma.com/design/<檔案>/<名稱>?node-id=<數字>-<數字>
+發佈到 Cloudflare Workers（免費 workers.dev）。
+網站介面質感要比照凱文設計展示站，海報畫面必須忠實於這個 Figma Frame。
+```
+
+對方會得到**自己的**網站（自己的 Figma、自己的網址），質感要比照展示站，不是比較陽春的複製品。
 
 ## 四步開始使用
 
@@ -41,9 +57,9 @@
 
 先在 Figma 整理好固定海報，並確認 Frame 網址可以實際開啟。把固定元素、可修改欄位、使用的圖片與字體列出來；如果缺少權限或素材來源不清楚，先停在這一步。
 
-### 2. 把需求和網址交給 Codex
+### 2. 把需求和網址交給 AI
 
-告訴 Codex 這張海報的用途，貼上精確的 Figma Frame 網址，並說明哪些文字、日期、照片會變動。Codex 會依這張版型整理可重複使用的工具；你要先查看它讀到的版面、欄位和固定素材是否正確。
+告訴 Cursor／Claude Code／Codex 這張海報的用途，貼上精確的 Figma Frame 網址，並說明哪些文字、日期、照片會變動。它會依這張版型整理可重複使用的工具；你要先查看它讀到的版面、欄位和固定素材是否正確。
 
 ### 3. 在瀏覽器填寫與預覽
 
@@ -84,9 +100,20 @@
 <details>
 <summary>給開發者：安裝模板、覆蓋範圍與驗證</summary>
 
-以下內容給要把模板放進既有網站專案的人；一般使用者不需要執行這些命令。
+以下內容給要建新站、或把模板放進既有 vinext 專案的人；一般使用者不需要執行這些命令。
 
-### 把模板放進既有專案
+### 新專案（給其他人的站）
+
+不要複製凱文設計展示站。在本 repo 根目錄執行：
+
+```bash
+bash scripts/init-cloudflare-project.sh /path/to/new-project <worker-name>
+bash scripts/install-template.sh /path/to/new-project
+```
+
+`worker-name` 用小寫連字號，之後會變成 `https://<name>.<帳號>.workers.dev`。
+
+### 把模板放進既有 vinext 專案
 
 目標專案需要先有 `package.json`。在本 repo 根目錄執行：
 
@@ -124,7 +151,8 @@ npm run build
 
 ### 技術文件
 
-- [SKILL.md](SKILL.md)：給 Codex 使用的來源、建置與安全規則。
+- [介紹與使用說明](docs/guide.md)：給第一次使用的人，Cursor／Claude Code／Codex 都能照做。
+- [SKILL.md](SKILL.md)：給 AI 使用的來源、建置與安全規則。
 - [Figma Frame 工作流程](references/figma-frame-workflow.md)：如何確認精確的 Figma Frame。
 - [來源資料格式](references/source-package.md)：Figma 讀取結果與固定素材的資料格式。
 - [版型設定說明](references/config-guide.md)：`config.ts` 的欄位、圖層、尺寸與字體設定。

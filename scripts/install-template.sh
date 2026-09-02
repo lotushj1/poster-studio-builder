@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# 把 Poster Studio 編輯器模板裝進一個 Sites（vinext）專案。
+# 把 Poster Studio 編輯器模板裝進一個 vinext + Cloudflare 專案。
+# 新專案請先跑 init-cloudflare-project.sh，不要複製展示站 weekly-live-poster-studio。
 # 用法：install-template.sh <目標專案目錄> [--force]
 #   --force：連 app/studio/config.ts 也覆蓋（預設保留既有設定）
 set -euo pipefail
@@ -15,7 +16,7 @@ if [[ -z "$TARGET" ]]; then
   exit 1
 fi
 if [[ ! -f "$TARGET/package.json" ]]; then
-  echo "找不到 $TARGET/package.json。請先用 Sites 外掛建立 starter 專案，再執行這支腳本。" >&2
+  echo "找不到 $TARGET/package.json。請先跑 scripts/init-cloudflare-project.sh <目錄>，再執行這支腳本。" >&2
   exit 1
 fi
 

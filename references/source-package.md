@@ -1,6 +1,6 @@
 # Figma source package 與 manifest
 
-source package 是由 Codex 依 Figma MCP 讀取結果產生的中間交付物，不是使用者手寫的設定檔。它把 Figma 來源、Frame screenshot、變體、圖層、字體與已下載資產綁在一起，讓 `config.ts` 有可追溯的正本。manifest-contract 命名必須先在 live Figma 以 [figma-naming.md](figma-naming.md) audit／readback verified；命名 proposal 不需要寫進 schema。
+source package 是由執行此 Skill 的 agent 依 Figma MCP 讀取結果產生的中間交付物，不是使用者手寫的設定檔。它把 Figma 來源、Frame screenshot、變體、圖層、字體與已下載資產綁在一起，讓 `config.ts` 有可追溯的正本。manifest-contract 命名必須先在 live Figma 以 [figma-naming.md](figma-naming.md) audit／readback verified；命名 proposal 不需要寫進 schema。
 
 ## 目錄建議
 
